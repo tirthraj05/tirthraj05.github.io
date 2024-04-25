@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- Site Metas -->
+<title>Tirth Gajera</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Site Icons -->
+<link rel="shortcut icon" href="images/tg.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Site CSS -->
+<link rel="stylesheet" href="style.css">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="css/responsive.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/custom.css">
+<script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+<style>
+    /* Styles for the menu bar */
+    .menu-bar {
+        background-color: #333;
+        overflow: hidden;
+        height: 100%;
+        width: 200px;
+        /* Adjusted width */
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        /* Changed to flex-start */
+        align-items: center;
+        /* Center align items vertically */
+    }
+
+    /* Style for the menu heading */
+    .menu-heading {
+        color: white;
+        text-align: center;
+        /* Center align text */
+        padding: 20px 0;
+        /* Increased padding */
+        margin-bottom: 10px;
+        font-size: 24px;
+        /* Reduced font size */
+    }
+
+    /* Style for the symbol */
+    .menu-symbol {
+        color: white;
+        font-size: 38px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    /* Style for the menu items */
+    .menu-item {
+        width: 100%;
+    }
+
+    /* Style for the links in the menu items */
+    .menu-item a {
+        display: block;
+        color: white;
+        text-align: left;
+        padding: 13px 35px;
+        text-decoration: none;
+        font-size: 18px;
+        /* Reduced font size */
+    }
+
+    /* Change color on hover */
+    .menu-item a:hover {
+        background-color: #555;
+    }
+
+    /* Style for the button */
+    .menu-item button {
+        padding: 10px 20px;
+        background-color: #555;
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Style for the button text */
+    .button-text {
+        margin-left: 10px;
+        /* Adjusted margin */
+        font-size: 18px;
+    }
+
+    /* ------------ */
+    .menu-bar {
+    background-color: #333;
+    overflow: hidden;
+    height: 100%;
+    width: 200px;
+    /* Adjusted width */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Changed to flex-start */
+    align-items: center;
+    /* Center align items vertically */
+}
+
+/* Style for the menu heading */
+.menu-heading {
+    color: white;
+    text-align: center;
+    /* Center align text */
+    padding: 20px 0;
+    /* Increased padding */
+    margin-bottom: 10px;
+    font-size: 24px;
+    /* Reduced font size */
+}
+
+/* Style for the symbol */
+.menu-symbol {
+    color: white;
+    font-size: 38px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* Style for the menu items */
+.menu-item {
+    width: 100%;
+}
+
+/* Style for the links in the menu items */
+.menu-item a {
+    display: block;
+    color: white;
+    text-align: left;
+    padding: 13px 35px;
+    text-decoration: none;
+    font-size: 18px;
+    /* Reduced font size */
+}
+
+/* Change color on hover */
+.menu-item a:hover {
+    background-color: #555;
+}
+
+/* Style for the button */
+.menu-item button {
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the button text */
+.button-text {
+    margin-left: 10px;
+    /* Adjusted margin */
+    font-size: 18px;
+}
+
+/* ------------ */
+/* We could use px but rem will adapt if the user changes the font size of the body. */
+:root {
+    --bar-graph-max-width: 15rem;
+    --bar-graph-min-color: #ffca28; /* Light yellow. */
+    --bar-graph-max-color: #ab47bc; /* Purple. */
+}
+
+html {
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+html,
+html[data-font-size="16px"] {
+    font-size: 16px; /* Default value. */
+}
+
+html[data-font-size="14px"] {
+    font-size: 14px;
+}
+
+html[data-font-size="20px"] {
+    font-size: 20px;
+}
+
+html[data-font-size="3vw"] {
+    font-size: 3vw;
+}
+
+body {
+    color: black;
+    background: #888;
+    padding: 0 1rem;
+}
+
+fieldset {
+    display: inline-block;
+}
+
+fieldset .spaced label {
+    white-space: nowrap; /* Don't split the label on several lines. */
+    margin-right: .5em;
+}
+
+fieldset .spaced label:last-child {
+    margin-right: 0;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+.bar-graph {
+    font-size: .8em;
+    border: 1px solid;
+    border-radius: 1rem;
+    max-width: var(--bar-graph-max-width);
+    background: rgba(0, 0, 0, .1); /* 10% transparent black. */
+    box-shadow: inset 0 .05rem .2rem rgba(0, 0, 0, .25); /* make it look deeper. */
+}
+
+.bar-graph > div {
+    box-sizing: border-box;
+    color: black;
+    /* Effect to emboss the text. */
+    text-shadow: .05rem .05rem 0 rgba(255, 255, 255, 0.25), /* White bottom right reflexion. */
+                 -.05rem -.05rem 0 rgba(0, 0, 0, 0.1); /* Light top left shadow. */
+    padding: .1rem .5rem;
+    border-radius: 1rem;
+    text-align: right;
+    background-color: var(--bar-graph-max-color); /* In case the gradient isn't supported by an old browser. */
+    background-image: linear-gradient(
+        90deg,
+        var(--bar-graph-min-color) 0%,
+        var(--bar-graph-max-color) 100%
+    );
+    background-size: var(--bar-graph-max-width) 100%; /* Width should not be 100% but the skills max width. */
+    box-shadow: inset 0 .15rem .1rem rgba(255, 255, 255, .3), /* Make it look shining at the top. */
+                inset 0 -.1rem .2rem rgba(0, 0, 0, .3); /* Add a shadow below to make it bump out. */
+}
+
+/* Generate all the CSS selectors to set the length of the bar
+   according to the value of the data-pourcent attribute. */
+.bar-graph > div[data-pourcent="94"] {
+    width: 94%;
+}
+
+.bar-graph > div[data-pourcent="91"] {
+    width: 91%;
+}
+
+.bar-graph > div[data-pourcent="10"] {
+    width: 10%;
+}
+
+.bar-graph > div[data-pourcent="78"] {
+    width: 78%;
+}
+
+.bar-graph > div[data-pourcent="58"] {
+    width: 58%;
+}
+
+.bar-graph > div[data-pourcent="58"] {
+    width: 58%;
+}
+
+.bar-graph > div[data-pourcent="97"] {
+    width: 97%;
+}
+
+.bar-graph > div[data-pourcent="99"] {
+    width: 99%;
+}
+
+</style>
+
+<head>
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <div class="menu-bar">
+        <div class="menu-heading">
+            <span class="menu-symbol">☰</span> Menu
+        </div>
+        <div class="menu-item"><a href="index.html">Home</a></div>
+        <div class="menu-item"><a href="about.html">Myself</a></div>
+        <div class="menu-item"><a href="services.html">Services</a></div>
+        <div class="menu-item"><a href="skill.html">Skill</a></div>
+        <div class="menu-item"><a href="contact.html">Contact</a></div>
+    </div>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div id="testimonials" class="section wb">
+        <div class="container">
+            <div class="section-title text-left">
+
+
+                <h3>My Skills</h3>
+                <p>We thanks for all our awesome testimonials! There are hundreds of our happy customers! </p>
+            </div><!-- end title -->
+
+            <div class="skill">
+              <div class="skill-bar">
+                  <div class="skill-name">HTML</div>
+                  <div class="bar-graph">
+                      <div data-pourcent="94">94%</div>
+                  </div>
+              </div>
+              <div class="skill-bar">
+                  <div class="skill-name">CSS</div>
+                  <div class="bar-graph">
+                      <div data-pourcent="91">91%</div>
+                  </div>
+              </div>
+              <div class="skill-bar">
+                  <div class="skill-name">JavaScript</div>
+                  <div class="bar-graph">
+                      <div data-pourcent="10">10%</div>
+                  </div>
+              </div>
+              <div class="skill-bar">
+                  <div class="skill-name">C language</div>
+                  <div class="bar-graph">
+                      <div data-pourcent="78">78%</div>
+                  </div>
+              </div>
+              <div class="skill-bar">
+                  <div class="skill-name">C++</div>
+                  <div class="bar-graph">
+                      <div data-pourcent="58">58%</div>
+                  </div>
+              </div>
+              <div class="skill-bar">
+                  <div class="skill-name">Meta Ads</div>
+                  <div class="bar-graph">
+                      <div data-pourcent="58">58%</div>
+                  </div>
+              </div>
+              <div class="skill-bar">
+                  <div class="skill-name">Meta Posting</div>
+                  <div class="bar-graph">
+                      <div data-pourcent="97">97%</div>
+                  </div>
+              </div>
+              <div class="skill-bar">
+                  <div class="skill-name">Creative Post</div>
+                  <div class="bar-graph">
+                      <div data-pourcent="99">99%</div>
+                  </div>
+              </div>
+          </div>
+
+</body>
+
+</html>
